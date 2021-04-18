@@ -1,8 +1,5 @@
 package pattern.state.order;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -10,12 +7,15 @@ import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.persist.StateMachinePersister;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service("orderService")
 public class OrderServiceImpl implements IOrderService {
 
     @Autowired
     private StateMachine<OrderStatus, OrderStatusChangeEvent> orderStateMachine;
- 
+
     @Autowired
     private StateMachinePersister<OrderStatus, OrderStatusChangeEvent, Order> persister;
  
